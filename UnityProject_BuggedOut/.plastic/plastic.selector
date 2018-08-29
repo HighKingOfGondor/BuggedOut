@@ -1,0 +1,4 @@
+repository "BasicProject_working@livelab-perforce.arch.tamu.edu:8087"
+  path "/"
+    smartbranch "/main"  
+     
