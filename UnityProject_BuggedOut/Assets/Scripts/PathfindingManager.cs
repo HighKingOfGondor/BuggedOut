@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class PathfindingManager : MonoBehaviour {
+public class PathfindingManager : Singleton<PathfindingManager> {
 
     public Tilemap map;
     public TileBase baseTile;
@@ -32,19 +32,7 @@ public class PathfindingManager : MonoBehaviour {
     {
         GenerateTileData();                     
     }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            List<Vector3Int> path = GetPath(Vector3Int.RoundToInt(player.position), Vector3Int.RoundToInt(enemy.position));
-            for (var i = 1; i < path.Count; i++)
-            {
-                Debug.DrawLine(path[i - 1], path[i], Color.blue, 1f);
-            }
-        }
-    }
-
+    
     void GenerateTileData()
     {
         tileDataMap = new Dictionary<Vector3Int, TileData>();
@@ -72,21 +60,12 @@ public class PathfindingManager : MonoBehaviour {
                     {
                         continue;
                     }                    
-
-                    if (data.isWalkable)
-                    {
-                        Debug.DrawLine((Vector3)localPlace, (Vector3)localPlace + new Vector3(x, y, 0) * 0.45f, Color.green, 10f);
-                    }
-                    else
-                    {
-                        Debug.DrawLine((Vector3)localPlace, (Vector3)localPlace + new Vector3(x, y, 0) * 0.45f, Color.red, 10f);
-                    }
                 }
             }            
         }
     }
 
-    public List<Vector3Int> GetPath(Vector3Int positionStart, Vector3Int positionTarget)
+    public List<Vector3> GetPath(Vector3Int positionStart, Vector3Int positionTarget)
     {        
         if (!tileDataMap.ContainsKey(positionStart))
         {
@@ -223,9 +202,9 @@ public class PathfindingManager : MonoBehaviour {
         return retData;
     }
 
-    public List<Vector3Int> ConstructPath(TileData lastData)
+    public List<Vector3> ConstructPath(TileData lastData)
     {
-        List<Vector3Int> retList = new List<Vector3Int>();        
+        List<Vector3> retList = new List<Vector3>();        
 
         TileData currentData = lastData;
         while (currentData.previousData != null)
@@ -234,6 +213,7 @@ public class PathfindingManager : MonoBehaviour {
             currentData = currentData.previousData;
         }
         retList.Add(currentData.position);
+        retList.Reverse();
         return retList;
     }
 
