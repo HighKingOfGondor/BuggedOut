@@ -33,6 +33,5 @@ public class health : MonoBehaviour {
 
     public void death () {
         isDead = true;
-
     }
 }
