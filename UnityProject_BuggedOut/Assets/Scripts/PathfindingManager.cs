@@ -33,6 +33,11 @@ public class PathfindingManager : Singleton<PathfindingManager> {
         GenerateTileData();                     
     }
     
+    public Vector3 GetRandomWalkablePosition()
+    {
+        return Vector3.zero;
+    }
+
     void GenerateTileData()
     {
         tileDataMap = new Dictionary<Vector3Int, TileData>();

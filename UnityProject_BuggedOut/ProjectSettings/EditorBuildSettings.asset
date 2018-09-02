@@ -12,11 +12,14 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/LoadingScreen.unity
+    path: Assets/Scenes/Loading/LoadingScene.unity
     guid: 33e9769b1d04f0244a3705764ea5e2c8
   - enabled: 1
-    path: Assets/Scenes/UIBasisScreen.unity
+    path: Assets/Scenes/Examples/UIBasisScreen.unity
     guid: 15d3a750ba003c546a2f59e5ece8a232
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
+    path: Assets/Scenes/Examples/LargeMenuScreen.unity
     guid: c4b216d0dc835584bab1802a66062547
+  - enabled: 1
+    path: Assets/Scenes/Pathfinding.unity
+    guid: 66942d76f2c9da94494cb702aa36aaa0

@@ -5,10 +5,11 @@ using UnityEngine;
 public class GameManager : SingletonDDOL<GameManager> {
 
     //[Header("GameManager")]
-    
-    //void Awake()
-    //{                      
-    //}
+
+    void Awake()
+    {
+        GameManager.instance.name = "GameManager";
+    }
 
     /// <summary>
     /// Sets the time scale to zero.
