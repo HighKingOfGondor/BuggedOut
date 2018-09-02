@@ -30,20 +30,18 @@ public class PathfindingManager : MonoBehaviour {
 
     void Start()
     {
-        GenerateTileData();              
-        List<Vector3Int> path = GetPath(Vector3Int.RoundToInt(player.position), Vector3Int.RoundToInt(enemy.position));
-        for (var i = 1; i < path.Count; i++)
-        {
-            Debug.DrawLine(path[i - 1], path[i], Color.red, 10f);
-        }
+        GenerateTileData();                     
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            player.position = playerPosition;
-            map.GetTile(playerPosition).name.Log();          
+            List<Vector3Int> path = GetPath(Vector3Int.RoundToInt(player.position), Vector3Int.RoundToInt(enemy.position));
+            for (var i = 1; i < path.Count; i++)
+            {
+                Debug.DrawLine(path[i - 1], path[i], Color.blue, 1f);
+            }
         }
     }
 
@@ -84,8 +82,7 @@ public class PathfindingManager : MonoBehaviour {
                         Debug.DrawLine((Vector3)localPlace, (Vector3)localPlace + new Vector3(x, y, 0) * 0.45f, Color.red, 10f);
                     }
                 }
-            }
-                    
+            }            
         }
     }
 
@@ -101,17 +98,19 @@ public class PathfindingManager : MonoBehaviour {
 
         // TODO check end node 
 
-        open = new List<TileData>();
         closed = new List<TileData>();
+        open = new List<TileData>();        
 
         TileData currentNode = tileDataMap[positionStart];
 
+        currentNode.pathID = currentPathID;
+        currentNode.previousData = null;
         currentNode.gScore = 0;
         currentNode.fScore = GetHeuristicCost(currentNode.position,positionTarget);
 
         open.Add(currentNode);
 
-        int lbkr = 50;
+        int lbkr = 100;
         while (open.Count > 0)
         {
             lbkr--;
@@ -130,7 +129,7 @@ public class PathfindingManager : MonoBehaviour {
             closed.Add(currentNode);
             currentNode.isClosed = true;
 
-            List<TileData> neghibors = GetNeghibors(currentNode.position);
+            List<TileData> neghibors = GetNeghibors(currentNode.position);            
             foreach (var i in neghibors)
             {
                 if (i.isClosed)
@@ -152,11 +151,11 @@ public class PathfindingManager : MonoBehaviour {
                 i.previousData = currentNode;
                 i.gScore = tempGScore;
                 i.fScore = tempGScore + GetHeuristicCost(i.position,positionTarget);
-            }
+            }            
         }
 
         Debug.LogError("Path Not Found");
-        return null;
+        return ConstructPath(currentNode);
     }
 
     List<TileData> GetNeghibors(Vector3Int currentPosition)
@@ -190,6 +189,7 @@ public class PathfindingManager : MonoBehaviour {
                         data.isClosed = false;
                         data.gScore = int.MaxValue;
                         data.fScore = int.MaxValue;
+                        data.previousData = null;
                     }
 
                     retList.Add(data);
