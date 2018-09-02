@@ -20,7 +20,7 @@ public class LevelManager : Singleton<LevelManager>
     public Transform parentHealth;
     public Image imageFillStability;
     public Text textScore;
-    
+    public UI.Screen screenEnd;
 
     [Header("Prefabs")]
     public GameObject prefabHealthOn;
@@ -37,7 +37,7 @@ public class LevelManager : Singleton<LevelManager>
         }
         set
         {
-            m_healthCurrent = value;
+            m_healthCurrent = Mathf.Clamp(value,0,int.MaxValue);
             if (parentHealth.childCount != healthCurrent)
             {
                 parentHealth.DestroyChildren();
@@ -51,7 +51,10 @@ public class LevelManager : Singleton<LevelManager>
                     GameObject spawnedHealthOffObject = Instantiate(prefabHealthOff, parentHealth);
                 }
             }
-
+            if (healthCurrent == 0)
+            {
+                EndLevel();
+            }
         }
     }
 
@@ -114,7 +117,7 @@ public class LevelManager : Singleton<LevelManager>
     public void EndLevel()
     {
         isPlaying = false;
-
+        UI.ScreenManager.instance.ScreenAdd(screenEnd,false);
     }
 
     public void CallbackReturnToMenu()
@@ -122,4 +125,8 @@ public class LevelManager : Singleton<LevelManager>
         LoadSceneManager.instance.LoadScene("LargeMenuScreen");
     }
 
+    public void CallbackReloadLevel()
+    {
+        LoadSceneManager.instance.LoadScene("Pathfinding");
+    }
 }
