@@ -118,4 +118,9 @@ public class Enemy : MonoBehaviour
             Debug.DrawLine(pathCurrent[i - 1], pathCurrent[i], Color.blue);
         }
     }
+
+    public void FollowPosition(Vector3 position)
+    {
+        rb.MovePosition(Vector2.MoveTowards(rb.position, position, speedMove));
+    }
 }
