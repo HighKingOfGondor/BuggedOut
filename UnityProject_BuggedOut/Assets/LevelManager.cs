@@ -87,7 +87,7 @@ public class LevelManager : Singleton<LevelManager>
 
     void Awake()
     {
-     StartLevel();   
+     
     }
 
     void Update()
@@ -115,6 +115,11 @@ public class LevelManager : Singleton<LevelManager>
     {
         isPlaying = false;
 
+    }
+
+    public void CallbackReturnToMenu()
+    {
+        LoadSceneManager.instance.LoadScene("LargeMenuScreen");
     }
 
 }

@@ -98,6 +98,11 @@ namespace UI
                 screensTransitioning--;
             }
         }
+
+        public void CallbackLoadScene(string sceneName)
+        {
+            LoadSceneManager.instance.LoadScene(sceneName);
+        }
     }
 
 }
