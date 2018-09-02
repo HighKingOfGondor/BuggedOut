@@ -17,7 +17,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        rb.MovePosition(rb.position + new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speedBase);
+        if (LevelManager.instance.isPlaying)
+        {
+            rb.MovePosition(rb.position + new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speedBase);
+        }        
     }
 
 }

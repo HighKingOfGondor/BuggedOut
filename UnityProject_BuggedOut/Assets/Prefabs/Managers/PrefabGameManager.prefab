@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   timeTransition: 0.4
-  timeLoadingMin: 2
+  timeLoadingMin: 0
   wipeImage: {fileID: 114699851604472026}
 --- !u!114 &114699851604472026
 MonoBehaviour:

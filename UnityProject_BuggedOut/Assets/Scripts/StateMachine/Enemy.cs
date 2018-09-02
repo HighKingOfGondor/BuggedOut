@@ -6,6 +6,9 @@ public class Enemy : MonoBehaviour
 {
     float nextPath;
 
+    public float delayAttack = 1f;
+    float nextAttack = 0f;
+
     public float speedMove = 1f;
 
     public State stateCurrent;
@@ -14,6 +17,8 @@ public class Enemy : MonoBehaviour
 
     Rigidbody2D rb;
 
+    public bool playerInRange;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -21,8 +26,37 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        DoActions();
-        CheckTransitions();
+        if (LevelManager.instance.isPlaying)
+        {
+            DoActions();
+            CheckTransitions();
+            Attack();
+        }
+    }
+
+    void Attack()
+    {
+        if (playerInRange && Time.time > nextAttack)
+        {
+            nextAttack = Time.time + delayAttack;
+            LevelManager.instance.healthCurrent--;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.transform.GetComponentInParent<PlayerController>() != null)
+        {
+            playerInRange = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.transform.GetComponentInParent<PlayerController>() != null)
+        {
+            playerInRange = false;
+        }
     }
 
     void DoActions()
@@ -58,7 +92,10 @@ public class Enemy : MonoBehaviour
             pathCurrent[0] = transform.position;
 
             // TODO make this settable
-            pathCurrent.Insert(1, transform.position + (pathCurrent[1] - transform.position) * (0.5f * (pathCurrent[1] - transform.position).magnitude));
+            if (pathCurrent.Count > 1)
+            {
+                pathCurrent.Insert(1, transform.position + (pathCurrent[1] - transform.position) * (0.5f * (pathCurrent[1] - transform.position).magnitude));
+            }            
         }
     }
 
