@@ -118,7 +118,7 @@ public class LevelManager : Singleton<LevelManager>
     public void EndLevel()
     {
         isPlaying = false;
-        UI.ScreenManager.instance.ScreenAdd(screenEnd,false);
+        UI.ScreenManager.instance.ScreenAdd(screenEnd,false);        
     }
 
     public void CallbackReturnToMenu()
