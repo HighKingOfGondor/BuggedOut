@@ -21,6 +21,7 @@ public class LevelManager : Singleton<LevelManager>
     public Image imageFillStability;
     public Text textScore;
     public UI.Screen screenEnd;
+    public ColorFlasher flasher;
 
     [Header("Prefabs")]
     public GameObject prefabHealthOn;
@@ -37,8 +38,18 @@ public class LevelManager : Singleton<LevelManager>
             return m_healthCurrent;
         }
         set
-        {
-            m_healthCurrent = Mathf.Clamp(value,0,int.MaxValue);
+        {            
+            if (m_healthCurrent > value)
+            {
+                flasher.FlashScreen(false);
+            }
+            else
+            {
+                flasher.FlashScreen(true);
+            }
+
+            m_healthCurrent = Mathf.Clamp(value, 0, int.MaxValue);
+
             if (parentHealth.childCount != healthCurrent)
             {
                 parentHealth.DestroyChildren();
