@@ -3,7 +3,16 @@ guid: aa5575c613f69824a89a027065bbdda6
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - transformPlayer: {instanceID: 0}
+  - parentHealth: {instanceID: 0}
+  - imageFillStability: {instanceID: 0}
+  - textScore: {instanceID: 0}
+  - screenEnd: {instanceID: 0}
+  - prefabHealthOn: {instanceID: 0}
+  - prefabHealthOff: {instanceID: 0}
+  - audioSource: {instanceID: 0}
+  - deathClip: {fileID: 8300000, guid: fd3190608c42f471b95ed0915ac3d96c, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -26,8 +26,6 @@ public class LevelManager : Singleton<LevelManager>
     public GameObject prefabHealthOn;
     public GameObject prefabHealthOff;
 
-
-
     int m_healthCurrent;
     public int healthCurrent
     {
@@ -88,10 +86,7 @@ public class LevelManager : Singleton<LevelManager>
         }
     }
 
-    void Awake()
-    {
-     
-    }
+    void Awake() {}
 
     void Update()
     {
