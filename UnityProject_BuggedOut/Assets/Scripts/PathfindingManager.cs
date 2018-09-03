@@ -28,9 +28,15 @@ public class PathfindingManager : Singleton<PathfindingManager> {
 
     public Dictionary<Vector3Int, TileData> tileDataMap = new Dictionary<Vector3Int, TileData> ();
 
-    void Start()
+    void Awake()
     {
-        GenerateTileData();                     
+        StartCoroutine(a());
+    }
+
+    IEnumerator a()
+    {
+        yield return new WaitForSeconds(1f);
+        GenerateTileData();
     }
     
     public Vector3 GetRandomWalkablePosition()
@@ -41,8 +47,9 @@ public class PathfindingManager : Singleton<PathfindingManager> {
     void GenerateTileData()
     {
         tileDataMap = new Dictionary<Vector3Int, TileData>();
+        
         foreach (var i in map.cellBounds.allPositionsWithin)
-        {
+        {            
             Vector3Int localPlace = new Vector3Int(i.x, i.y, i.z);
 
             if (!map.HasTile(localPlace))
@@ -52,6 +59,12 @@ public class PathfindingManager : Singleton<PathfindingManager> {
 
             TileBase tileBase = map.GetTile(i);
             bool isWalkable = tileBase.name != wallName;
+            
+            if (isWalkable)
+            {
+                GameObject spawnedPelletObject = Instantiate(LevelManager.instance.prefabPellet);
+                spawnedPelletObject.transform.position = localPlace;                
+            }
 
             TileData data = new TileData(tileBase, localPlace, isWalkable);
 

@@ -25,6 +25,7 @@ public class LevelManager : Singleton<LevelManager>
     [Header("Prefabs")]
     public GameObject prefabHealthOn;
     public GameObject prefabHealthOff;
+    public GameObject prefabPellet;
 
 
 
@@ -107,7 +108,7 @@ public class LevelManager : Singleton<LevelManager>
     }
 
     public void StartLevel()
-    {
+    {        
         stabilityCurrent = 1f;
         scoreCurrent = 0;
         healthCurrent = healthMax;
