@@ -376,7 +376,11 @@ RectTransform:
   - {fileID: 1421527983}
   - {fileID: 1647757207}
   m_Father: {fileID: 0}
+<<<<<<< HEAD
+  m_RootOrder: 10
+=======
   m_RootOrder: 9
+>>>>>>> 1491d1695941f5da24f734e14067d153cb2806e9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -413,6 +417,16 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &315922464 stripped
 GameObject:
+<<<<<<< HEAD
+  m_PrefabParentObject: {fileID: 1247326781847718, guid: 6cef340936901d3439b63a6d78914f1f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1791591299}
+--- !u!4 &315922465 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4255867154393310, guid: 6cef340936901d3439b63a6d78914f1f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1791591299}
+=======
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -556,6 +570,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+>>>>>>> 1491d1695941f5da24f734e14067d153cb2806e9
 --- !u!1 &340258097
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,7 +644,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4956794724856630, guid: f182f15860f843c41a9e253041a59f4c, type: 2}
       propertyPath: m_RootOrder
+<<<<<<< HEAD
+      value: 12
+=======
       value: 11
+>>>>>>> 1491d1695941f5da24f734e14067d153cb2806e9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f182f15860f843c41a9e253041a59f4c, type: 2}
@@ -677,7 +696,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
+  m_RootOrder: 11
+=======
   m_RootOrder: 10
+>>>>>>> 1491d1695941f5da24f734e14067d153cb2806e9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &542832211
 GameObject:
@@ -1430,12 +1453,16 @@ GameObject:
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
+<<<<<<< HEAD
+  - component: {fileID: 799664935}
+=======
   - component: {fileID: 811830873}
   - component: {fileID: 811830876}
   - component: {fileID: 811830877}
   - component: {fileID: 811830875}
   - component: {fileID: 811830874}
   - component: {fileID: 811830878}
+>>>>>>> 1491d1695941f5da24f734e14067d153cb2806e9
   m_Layer: 0
   m_Name: Spawnpoint4
   m_TagString: Untagged
@@ -1512,6 +1539,26 @@ Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 809444588}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &811830872 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1862613982287310, guid: f392e39a039e27a43bcd0ad0c0be8ba2,
+    type: 2}
+  m_PrefabInternal: {fileID: 2006374791}
+--- !u!4 &811830873 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4946679195226512, guid: f392e39a039e27a43bcd0ad0c0be8ba2,
+    type: 2}
+  m_PrefabInternal: {fileID: 2006374791}
+=======
   m_GameObject: {fileID: 811830872}
   m_Enabled: 1
   m_CastShadows: 0
@@ -1568,6 +1615,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+>>>>>>> 1491d1695941f5da24f734e14067d153cb2806e9
 --- !u!1 &863742339
 GameObject:
   m_ObjectHideFlags: 0
@@ -1702,7 +1750,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
+  m_RootOrder: 9
+=======
   m_RootOrder: 8
+>>>>>>> 1491d1695941f5da24f734e14067d153cb2806e9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1013567623
 GameObject:
@@ -2677,7 +2729,11 @@ RectTransform:
   - {fileID: 675519418}
   - {fileID: 1538640596}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+<<<<<<< HEAD
+  m_RootOrder: 8
+=======
+  m_RootOrder: 7
+>>>>>>> 1491d1695941f5da24f734e14067d153cb2806e9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
