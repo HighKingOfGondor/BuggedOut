@@ -8,6 +8,7 @@ TagManager:
   - EnergyDrink
   - Chips
   - Pills
+  - Web
   layers:
   - Default
   - TransparentFX

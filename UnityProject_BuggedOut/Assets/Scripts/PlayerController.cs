@@ -32,15 +32,18 @@ public class PlayerController : MonoBehaviour
             StartCoroutine (PowerUpSpeed());
             Destroy(other.gameObject);
         } else if (other.gameObject.tag == "Chips") {
-            if (LevelManager.instance.healthCurrent == 1) {
-                LevelManager.instance.healthCurrent++;
-                AudioManager.instance.PlayClipLocalSpace(powerUpAudio);
-                Destroy(other.gameObject);
-            }
+            LevelManager.instance.healthCurrent++;
+            AudioManager.instance.PlayClipLocalSpace(powerUpAudio);
+            Destroy(other.gameObject);
         } else if (other.gameObject.tag == "Pills") {
             AudioManager.instance.PlayClipLocalSpace(powerUpAudio);
             invulnerable = true;
             StartCoroutine(PowerUpPills());
+            Destroy(other.gameObject);
+        } else if (other.gameObject.tag == "Web") {
+            AudioManager.instance.PlayClipLocalSpace(powerUpAudio);
+            this.GetComponent<Collider2D>().enabled = false;
+            StartCoroutine(PowerUpPhase());
             Destroy(other.gameObject);
         }
     }
@@ -49,9 +52,12 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds (2f);
         speedBase = 10f;
     }
-    IEnumerator PowerUpPills()
-    {
+    IEnumerator PowerUpPills() {
         yield return new WaitForSeconds(2f);
         invulnerable = false;
+    }
+    IEnumerator PowerUpPhase (){
+        yield return new WaitForSeconds(2f);
+        this.GetComponent<CircleCollider2D>().enabled = true;
     }
 }
