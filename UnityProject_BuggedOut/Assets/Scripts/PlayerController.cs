@@ -24,4 +24,21 @@ public class PlayerController : MonoBehaviour
         }        
     }
 
+    void OnTriggerEnter2D (Collider2D other) {
+        if (other.gameObject.tag == "EnergyDrink") {
+            speedBase = 20f;
+            StartCoroutine (PowerUpSpeed());
+            Destroy(other.gameObject);
+        } else if (other.gameObject.tag == "Chips") {
+            if (LevelManager.instance.healthCurrent < 2) {
+                LevelManager.instance.healthCurrent++;
+                Destroy(other.gameObject);
+            }
+        }
+    }
+
+    IEnumerator PowerUpSpeed () {
+        yield return new WaitForSeconds (2f);
+        speedBase = 10f;
+    }
 }
