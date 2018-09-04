@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     public AudioClip powerUpAudio;
     public float speedBase = 0.1f;
+    public bool invulnerable = false;
 
     void Awake()
     {
@@ -38,6 +39,8 @@ public class PlayerController : MonoBehaviour
             }
         } else if (other.gameObject.tag == "Pills") {
             AudioManager.instance.PlayClipLocalSpace(powerUpAudio);
+            invulnerable = true;
+            StartCoroutine(PowerUpPills());
             Destroy(other.gameObject);
         }
     }
@@ -45,5 +48,10 @@ public class PlayerController : MonoBehaviour
     IEnumerator PowerUpSpeed () {
         yield return new WaitForSeconds (2f);
         speedBase = 10f;
+    }
+    IEnumerator PowerUpPills()
+    {
+        yield return new WaitForSeconds(2f);
+        invulnerable = false;
     }
 }

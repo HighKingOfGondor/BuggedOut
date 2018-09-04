@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.transform.GetComponentInParent<PlayerController>() != null)
+        if (col.transform.GetComponentInParent<PlayerController>() != null && col.transform.GetComponentInParent<PlayerController>().invulnerable == false)
         {
             playerInRange = true;
         }
