@@ -47,12 +47,14 @@ public class LevelManager : Singleton<LevelManager>
                 for (int i = 0; i < healthCurrent; i++)
                 {
                     GameObject spawnedHealthOnObject = Instantiate(prefabHealthOn,parentHealth);
-
+                    Debug.Log("is" + healthCurrent);
                 }
                 for (int i = 0; i < (healthMax - healthCurrent); i++)
                 {
                     AudioManager.instance.PlayClipLocalSpace(hurtClip);
                     GameObject spawnedHealthOffObject = Instantiate(prefabHealthOff, parentHealth);
+                    Debug.Log("is" + healthCurrent);
+
                 }
             }
             if (healthCurrent == 0)

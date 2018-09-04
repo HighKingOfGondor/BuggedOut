@@ -31,11 +31,14 @@ public class PlayerController : MonoBehaviour
             StartCoroutine (PowerUpSpeed());
             Destroy(other.gameObject);
         } else if (other.gameObject.tag == "Chips") {
-            if (LevelManager.instance.healthCurrent < 2) {
+            if (LevelManager.instance.healthCurrent == 1) {
                 LevelManager.instance.healthCurrent++;
                 AudioManager.instance.PlayClipLocalSpace(powerUpAudio);
                 Destroy(other.gameObject);
             }
+        } else if (other.gameObject.tag == "Pills") {
+            AudioManager.instance.PlayClipLocalSpace(powerUpAudio);
+            Destroy(other.gameObject);
         }
     }
 
