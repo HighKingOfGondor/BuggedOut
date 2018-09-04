@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
 
     Rigidbody2D rb;
-
+    public AudioClip powerUpAudio;
     public float speedBase = 0.1f;
 
     void Awake()
@@ -27,11 +27,13 @@ public class PlayerController : MonoBehaviour
     void OnTriggerEnter2D (Collider2D other) {
         if (other.gameObject.tag == "EnergyDrink") {
             speedBase = 20f;
+            AudioManager.instance.PlayClipLocalSpace(powerUpAudio);
             StartCoroutine (PowerUpSpeed());
             Destroy(other.gameObject);
         } else if (other.gameObject.tag == "Chips") {
             if (LevelManager.instance.healthCurrent < 2) {
                 LevelManager.instance.healthCurrent++;
+                AudioManager.instance.PlayClipLocalSpace(powerUpAudio);
                 Destroy(other.gameObject);
             }
         }
