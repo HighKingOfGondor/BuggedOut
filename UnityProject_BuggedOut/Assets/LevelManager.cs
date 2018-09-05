@@ -131,7 +131,7 @@ public class LevelManager : Singleton<LevelManager>
 
     public void StartLevel()
     {        
-        stabilityCurrent = 0.3f;
+        stabilityCurrent = 1f;
         scoreCurrent = 0;
         healthCurrent = healthMax;
         isPlaying = true;

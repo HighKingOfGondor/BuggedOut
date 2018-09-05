@@ -126,7 +126,7 @@ public class PathfindingManager : Singleton<PathfindingManager> {
             closed.Add(currentNode);
             currentNode.isClosed = true;
 
-            List<TileData> neghibors = GetNeghibors(currentNode.position);            
+            List<TileData> neghibors = GetNeighbors(currentNode.position);            
             foreach (var i in neghibors)
             {
                 if (i.isClosed)
@@ -155,7 +155,7 @@ public class PathfindingManager : Singleton<PathfindingManager> {
         return ConstructPath(currentNode);
     }
 
-    List<TileData> GetNeghibors(Vector3Int currentPosition)
+    List<TileData> GetNeighbors(Vector3Int currentPosition)
     {
         List<TileData> retList = new List<TileData>();
 

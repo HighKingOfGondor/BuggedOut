@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 [RequireComponent((typeof(Rigidbody2D)))]
 public class PlayerController : MonoBehaviour
@@ -8,8 +9,10 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rb;
     public AudioClip powerUpAudio;
+    public Vector3Int startPosition;
     public float speedBase = 0.1f;
     public bool invulnerable = false;
+    public Tilemap tilemap;
     Animator anim;
     SpriteRenderer sprite;
 
@@ -84,6 +87,11 @@ public class PlayerController : MonoBehaviour
     IEnumerator PowerUpPhase()
     {
         yield return new WaitForSeconds(2f);
-        this.GetComponent<CircleCollider2D>().enabled = true;
+        //if (tilemap.GetTile(new Vector3Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y), Mathf.RoundToInt(transform.position.z))).
+        if (PathfindingManager.instance.GetPath(PathfindingManager.instance.playerPosition, startPosition) == null)
+        {
+            transform.position = startPosition;
+        }
+        GetComponent<CircleCollider2D>().enabled = true;
     }
 }
