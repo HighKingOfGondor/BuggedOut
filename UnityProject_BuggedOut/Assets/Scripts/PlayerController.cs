@@ -10,10 +10,14 @@ public class PlayerController : MonoBehaviour
     public AudioClip powerUpAudio;
     public float speedBase = 0.1f;
     public bool invulnerable = false;
+    Animator anim;
+    SpriteRenderer sprite;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -22,6 +26,8 @@ public class PlayerController : MonoBehaviour
         {
             //rb.MovePosition(rb.position + new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speedBase);
             rb.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speedBase;
+            sprite.flipX = rb.velocity.x > 0;
+            anim.SetBool("Walking", (rb.velocity.x != 0 || rb.velocity.y != 0));
         }        
     }
 
@@ -35,9 +41,11 @@ public class PlayerController : MonoBehaviour
             LevelManager.instance.healthCurrent++;
             AudioManager.instance.PlayClipLocalSpace(powerUpAudio);
             Destroy(other.gameObject);
+            sprite.color = Color.yellow;
         } else if (other.gameObject.tag == "Pills") {
             AudioManager.instance.PlayClipLocalSpace(powerUpAudio);
             invulnerable = true;
+
             StartCoroutine(PowerUpPills());
             Destroy(other.gameObject);
         } else if (other.gameObject.tag == "Web") {
@@ -45,15 +53,20 @@ public class PlayerController : MonoBehaviour
             this.GetComponent<Collider2D>().enabled = false;
             StartCoroutine(PowerUpPhase());
             Destroy(other.gameObject);
+        } else if (other.gameObject.tag == "Code") {
+            LevelManager.instance.stabilityCurrent += 0.25f;
+            StartCoroutine(PowerUpSpeed());
+            Destroy(other.gameObject);
         }
     }
 
     IEnumerator PowerUpSpeed () {
         yield return new WaitForSeconds (2f);
-        speedBase = 10f;
+        speedBase = 5f;
     }
     IEnumerator PowerUpPills() {
         yield return new WaitForSeconds(2f);
+        sprite.color = Color.white;
         invulnerable = false;
     }
     IEnumerator PowerUpPhase (){

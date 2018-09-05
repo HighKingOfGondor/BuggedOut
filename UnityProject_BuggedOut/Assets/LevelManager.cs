@@ -22,6 +22,7 @@ public class LevelManager : Singleton<LevelManager>
     public Text textScore;
     public UI.Screen screenEnd;
     public ColorFlasher flasher;
+    public Animator animPlayer;
 
     [Header("Prefabs")]
     public GameObject prefabHealthOn;
@@ -44,6 +45,7 @@ public class LevelManager : Singleton<LevelManager>
             if (m_healthCurrent > value)
             {
                 flasher.FlashScreen(false);
+                animPlayer.SetTrigger("Hit");
             }
             else
             {
@@ -71,6 +73,7 @@ public class LevelManager : Singleton<LevelManager>
             if (healthCurrent == 0)
             {
                 AudioManager.instance.PlayClipLocalSpace(deathAudio);
+                animPlayer.SetBool("Dead", true);
                 EndLevel();
             }
         }
@@ -108,7 +111,7 @@ public class LevelManager : Singleton<LevelManager>
 
     void Awake()
     {
-     
+
     }
 
     void Update()

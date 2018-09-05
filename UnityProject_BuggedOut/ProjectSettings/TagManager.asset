@@ -9,6 +9,7 @@ TagManager:
   - Chips
   - Pills
   - Web
+  - Code
   layers:
   - Default
   - TransparentFX

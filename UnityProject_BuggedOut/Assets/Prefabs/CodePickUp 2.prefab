@@ -15,6 +15,11 @@ Prefab:
       propertyPath: m_TagString
       value: Code
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 78c3f9c8ca8884cfbb9505c9c3a6ee86,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1043347051751906}
@@ -30,7 +35,7 @@ GameObject:
   - component: {fileID: 212739863257085988}
   - component: {fileID: 95682074121161640}
   m_Layer: 0
-  m_Name: CodePickUp
+  m_Name: CodePickUp 2
   m_TagString: Code
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,7 +105,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: f38b5121f991a45e49c152c883c40b0a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 78c3f9c8ca8884cfbb9505c9c3a6ee86, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

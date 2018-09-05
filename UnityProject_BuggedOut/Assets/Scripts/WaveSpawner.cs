@@ -103,7 +103,10 @@ public class WaveSpawner : MonoBehaviour
 
         for (int i = 0; i < wave.count; i++)
         {
-            SpawnEnemy(wave.enemies[Random.Range(0,wave.enemies.Count-1)]);
+            if (wave.enemies.Count > 0)
+            {
+                SpawnEnemy(wave.enemies[Random.Range(0, wave.enemies.Count)]);
+            }
             yield return new WaitForSeconds(1f / wave.rate);
         }
 
