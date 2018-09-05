@@ -28,48 +28,61 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speedBase;
             sprite.flipX = rb.velocity.x > 0;
             anim.SetBool("Walking", (rb.velocity.x != 0 || rb.velocity.y != 0));
-        }        
+        }
     }
 
-    void OnTriggerEnter2D (Collider2D other) {
-        if (other.gameObject.tag == "EnergyDrink") {
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "EnergyDrink")
+        {
             speedBase = 20f;
             AudioManager.instance.PlayClipLocalSpace(powerUpAudio);
-            StartCoroutine (PowerUpSpeed());
+            StartCoroutine(PowerUpSpeed());
             Destroy(other.gameObject);
-        } else if (other.gameObject.tag == "Chips") {
+        }
+        else if (other.gameObject.tag == "Chips")
+        {
             LevelManager.instance.healthCurrent++;
             AudioManager.instance.PlayClipLocalSpace(powerUpAudio);
             Destroy(other.gameObject);
-            sprite.color = Color.yellow;
-        } else if (other.gameObject.tag == "Pills") {
+        }
+        else if (other.gameObject.tag == "Pills")
+        {
+            sprite.color = Color.blue;
             AudioManager.instance.PlayClipLocalSpace(powerUpAudio);
             invulnerable = true;
 
             StartCoroutine(PowerUpPills());
             Destroy(other.gameObject);
-        } else if (other.gameObject.tag == "Web") {
+        }
+        else if (other.gameObject.tag == "Web")
+        {
             AudioManager.instance.PlayClipLocalSpace(powerUpAudio);
             this.GetComponent<Collider2D>().enabled = false;
             StartCoroutine(PowerUpPhase());
             Destroy(other.gameObject);
-        } else if (other.gameObject.tag == "Code") {
-            LevelManager.instance.stabilityCurrent += 0.25f;
+        }
+        else if (other.gameObject.tag == "Code")
+        {
+            LevelManager.instance.stabilityCurrent += 0.1f;
             StartCoroutine(PowerUpSpeed());
             Destroy(other.gameObject);
         }
     }
 
-    IEnumerator PowerUpSpeed () {
-        yield return new WaitForSeconds (2f);
+    IEnumerator PowerUpSpeed()
+    {
+        yield return new WaitForSeconds(2f);
         speedBase = 5f;
     }
-    IEnumerator PowerUpPills() {
+    IEnumerator PowerUpPills()
+    {
         yield return new WaitForSeconds(2f);
         sprite.color = Color.white;
         invulnerable = false;
     }
-    IEnumerator PowerUpPhase (){
+    IEnumerator PowerUpPhase()
+    {
         yield return new WaitForSeconds(2f);
         this.GetComponent<CircleCollider2D>().enabled = true;
     }

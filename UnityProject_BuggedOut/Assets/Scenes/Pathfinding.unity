@@ -2772,12 +2772,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Powerup Wave
+  - name: Code Wave
     enemies:
-    - {fileID: 1043347051751906, guid: be7ed20e1b38440859acdcf377f22936, type: 2}
-    - {fileID: 1043347051751906, guid: cd8f769c06cb35640843994eb768594e, type: 2}
-    - {fileID: 1043347051751906, guid: 25e0a05da32c8684a885dd58588dcd04, type: 2}
-    - {fileID: 1043347051751906, guid: c085eeb7384dd1d419e1e3ddd7c341e9, type: 2}
+    - {fileID: 1433032655377446, guid: be7ed20e1b38440859acdcf377f22936, type: 2}
     count: 1
     rate: 1
   nextWave: 0
@@ -2786,8 +2783,8 @@ MonoBehaviour:
   - {fileID: 555547668}
   - {fileID: 287673995}
   - {fileID: 1126401264}
-  timeBetweenWaves: 20
-  delayWaveSpawn: 10
+  timeBetweenWaves: 10
+  delayWaveSpawn: 5
   waveCountdown: 0
   state: 2
   spawnWithTime: 1
@@ -10449,7 +10446,7 @@ RectTransform:
   - {fileID: 1091008220}
   - {fileID: 1608531453}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10754,8 +10751,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1972856654}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.000061035156, y: 0.000030517578, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1565334534}
@@ -10763,7 +10760,7 @@ Transform:
   - {fileID: 811830873}
   - {fileID: 315922465}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1997532501
 GameObject:

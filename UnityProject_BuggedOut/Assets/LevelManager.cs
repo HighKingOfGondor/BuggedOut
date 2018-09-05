@@ -41,7 +41,7 @@ public class LevelManager : Singleton<LevelManager>
             return m_healthCurrent;
         }
         set
-        {            
+        {
             if (m_healthCurrent > value)
             {
                 flasher.FlashScreen(false);
@@ -52,7 +52,7 @@ public class LevelManager : Singleton<LevelManager>
                 flasher.FlashScreen(true);
             }
 
-            m_healthCurrent = Mathf.Clamp(value, 0, int.MaxValue);
+            m_healthCurrent = Mathf.Clamp(value, 0, 3);
 
             if (parentHealth.childCount != healthCurrent)
             {
@@ -72,8 +72,6 @@ public class LevelManager : Singleton<LevelManager>
             }
             if (healthCurrent == 0)
             {
-                AudioManager.instance.PlayClipLocalSpace(deathAudio);
-                animPlayer.SetBool("Dead", true);
                 EndLevel();
             }
         }
@@ -89,7 +87,11 @@ public class LevelManager : Singleton<LevelManager>
         }
         set
         {
-            m_stabilityCurrent = value;
+            if (value <= 0)
+            {
+                EndLevel();
+            }
+            m_stabilityCurrent = Mathf.Clamp(value, 0f, 1f); ;
             imageFillStability.fillAmount = stabilityCurrent;
             imageFillStability.color = gradientStability.Evaluate(stabilityCurrent);
         }
@@ -129,7 +131,7 @@ public class LevelManager : Singleton<LevelManager>
 
     public void StartLevel()
     {        
-        stabilityCurrent = 1f;
+        stabilityCurrent = 0.3f;
         scoreCurrent = 0;
         healthCurrent = healthMax;
         isPlaying = true;
@@ -138,6 +140,8 @@ public class LevelManager : Singleton<LevelManager>
 
     public void EndLevel()
     {
+        AudioManager.instance.PlayClipLocalSpace(deathAudio);
+        animPlayer.SetBool("Dead", true);
         isPlaying = false;
         UI.ScreenManager.instance.ScreenAdd(screenEnd,false);        
     }
