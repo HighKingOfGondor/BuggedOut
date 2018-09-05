@@ -1915,19 +1915,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - name: Energy Drink Powerup
-    enemy: {fileID: 1449908767139750, guid: 73b2e02c4f50247528ed05685fd6de54, type: 2}
-    count: 1
-    rate: 1
-  - name: Google Powerup
-    enemy: {fileID: 1893682619589374, guid: 0a62408bc3595493c8634fd64b009bcb, type: 2}
-    count: 1
-    rate: 1
-  - name: Chips Powerup
-    enemy: {fileID: 1048197055095618, guid: e63ddb64085f944eab3effb20515f8e4, type: 2}
-    count: 1
-    rate: 1
-  - name: Pill Powerup
-    enemy: {fileID: 1585079270561460, guid: 8eb65fc60705f4d97a6fb41316cc322a, type: 2}
+    enemies:
+    - {fileID: 1048197055095618, guid: e63ddb64085f944eab3effb20515f8e4, type: 2}
+    - {fileID: 1449908767139750, guid: 73b2e02c4f50247528ed05685fd6de54, type: 2}
+    - {fileID: 1893682619589374, guid: 0a62408bc3595493c8634fd64b009bcb, type: 2}
+    - {fileID: 1585079270561460, guid: 8eb65fc60705f4d97a6fb41316cc322a, type: 2}
+    - {fileID: 1043347051751906, guid: be7ed20e1b38440859acdcf377f22936, type: 2}
     count: 1
     rate: 1
   nextWave: 0
@@ -10074,11 +10067,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - name: Wave 1
-    enemy: {fileID: 811830872}
+    enemies: []
     count: 3
     rate: 1
-  - name: 
-    enemy: {fileID: 315922464}
+  - name: Wave 2
+    enemies: []
     count: 2
     rate: 1
   nextWave: 0
@@ -10091,7 +10084,7 @@ MonoBehaviour:
   delayWaveSpawn: 10
   waveCountdown: 0
   state: 2
-  spawnWithTime: 1
+  spawnWithTime: 0
 --- !u!4 &1847805085
 Transform:
   m_ObjectHideFlags: 0
