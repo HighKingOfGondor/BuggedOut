@@ -23,6 +23,7 @@ public class LevelManager : Singleton<LevelManager>
     public UI.Screen screenEnd;
     public ColorFlasher flasher;
     public Animator animPlayer;
+    public AudioClip music;
 
     [Header("Prefabs")]
     public GameObject prefabHealthOn;
@@ -111,9 +112,9 @@ public class LevelManager : Singleton<LevelManager>
         }
     }
 
-    void Awake()
+    void Start()
     {
-
+        AudioManager.instance.PlayClipLocalLooped(music);
     }
 
     void Update()

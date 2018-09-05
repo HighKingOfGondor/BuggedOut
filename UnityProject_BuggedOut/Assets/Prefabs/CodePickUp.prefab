@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 95301492687365378}
   - component: {fileID: 58907116945049112}
   m_Layer: 0
-  m_Name: CodePickup
+  m_Name: CodePickUp
   m_TagString: Code
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
