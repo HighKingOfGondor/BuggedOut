@@ -28,7 +28,9 @@ public class LevelManager : Singleton<LevelManager>
     public GameObject prefabHealthOff;
     public GameObject prefabPellet;
 
-
+    public AudioClip deathAudio;
+    public AudioClip hurtClip;
+    public AudioClip respawnClip;
 
     int m_healthCurrent;
     public int healthCurrent
@@ -56,15 +58,19 @@ public class LevelManager : Singleton<LevelManager>
                 for (int i = 0; i < healthCurrent; i++)
                 {
                     GameObject spawnedHealthOnObject = Instantiate(prefabHealthOn,parentHealth);
-
+                    Debug.Log("is" + healthCurrent);
                 }
                 for (int i = 0; i < (healthMax - healthCurrent); i++)
                 {
+                    AudioManager.instance.PlayClipLocalSpace(hurtClip);
                     GameObject spawnedHealthOffObject = Instantiate(prefabHealthOff, parentHealth);
+                    Debug.Log("is" + healthCurrent);
+
                 }
             }
             if (healthCurrent == 0)
             {
+                AudioManager.instance.PlayClipLocalSpace(deathAudio);
                 EndLevel();
             }
         }
@@ -124,6 +130,7 @@ public class LevelManager : Singleton<LevelManager>
         scoreCurrent = 0;
         healthCurrent = healthMax;
         isPlaying = true;
+        AudioManager.instance.PlayClipLocalSpace(respawnClip);
     }
 
     public void EndLevel()

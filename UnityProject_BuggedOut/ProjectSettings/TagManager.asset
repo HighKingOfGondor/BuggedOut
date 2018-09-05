@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - EnergyDrink
+  - Chips
+  - Pills
+  - Web
   layers:
   - Default
   - TransparentFX
