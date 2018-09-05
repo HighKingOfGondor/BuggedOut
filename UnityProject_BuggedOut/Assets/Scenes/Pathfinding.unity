@@ -1589,6 +1589,9 @@ MonoBehaviour:
     type: 2}
   prefabPellet: {fileID: 1215146147317090, guid: a2648449fce567242a7a30876f5a25b1,
     type: 2}
+  deathAudio: {fileID: 0}
+  hurtClip: {fileID: 0}
+  respawnClip: {fileID: 0}
 --- !u!4 &795584883
 Transform:
   m_ObjectHideFlags: 0
@@ -1911,12 +1914,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
-    enemy: {fileID: 811830872}
+  - name: Energy Drink Powerup
+    enemy: {fileID: 1449908767139750, guid: 73b2e02c4f50247528ed05685fd6de54, type: 2}
     count: 1
     rate: 1
-  - name: 
-    enemy: {fileID: 315922464}
+  - name: Google Powerup
+    enemy: {fileID: 1893682619589374, guid: 0a62408bc3595493c8634fd64b009bcb, type: 2}
+    count: 1
+    rate: 1
+  - name: Chips Powerup
+    enemy: {fileID: 1048197055095618, guid: e63ddb64085f944eab3effb20515f8e4, type: 2}
+    count: 1
+    rate: 1
+  - name: Pill Powerup
+    enemy: {fileID: 1585079270561460, guid: 8eb65fc60705f4d97a6fb41316cc322a, type: 2}
     count: 1
     rate: 1
   nextWave: 0
@@ -3166,7 +3177,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2847b8baa753a2d498e3eb966b47aba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerUpAudio: {fileID: 0}
   speedBase: 5
+  invulnerable: 0
 --- !u!58 &1554365527
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10294,7 +10307,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1957856205
 MonoBehaviour:
   m_ObjectHideFlags: 0
